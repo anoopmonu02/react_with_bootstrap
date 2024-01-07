@@ -39,7 +39,7 @@ export default function TextForm(props) {
         <Form>            
             <h2>{props.heading}</h2>
             <Form.Group className="mb-3" controlId="myBox">                
-                <Form.Control as="textarea" rows={8} value={text} onChange={handleOnChange}/>
+                <Form.Control as="textarea" style={{backgroundColor:props.mode==='dark'?'darkgray':'white',color:props.mode==='dark'?'white':'black'}} rows={8} value={text} onChange={handleOnChange}/>
             </Form.Group>
         </Form>
         {/* <Mybutton btnText="Convert to Uppercase"  btnClass="primary"/> */}

@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types'
 
 export default function Mynavbar(props) {
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg={`${props.mode}`} data-bs-theme={`${props.mode}`}>
       <Container className="container-fluid">
         <Navbar.Brand href="#home">{props.title}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,6 +26,17 @@ export default function Mynavbar(props) {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+
+            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'}`}>
+              <Form.Check // prettier-ignore
+                type="switch"
+                id="custom-switch"
+                label="Enable Darkmode"
+                className=' me-2'
+                onClick={props.toggleMode}
+              />              
+            </Form>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
