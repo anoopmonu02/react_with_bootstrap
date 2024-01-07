@@ -12,13 +12,20 @@ export default function TextForm(props) {
     setText(text.toUpperCase());
     //setText()
   }
+
+  const handleLoClick = () => {
+    //console.log('Btn is clicked');
+    setText(text.toLowerCase());
+  }
+
   const handleOnChange = (event) => {
     console.log('changed');
     setText(event.target.value);
   }
     
   return (
-    <div>
+    <>
+    <div className='container'>
         <Form>            
             <h2>{props.heading}</h2>
             <Form.Group className="mb-3" controlId="myBox">                
@@ -27,7 +34,16 @@ export default function TextForm(props) {
         </Form>
         {/* <Mybutton btnText="Convert to Uppercase"  btnClass="primary"/> */}
         <Button variant="primary" onClick={handleUpClick}>Convert to Uppercase</Button>{' '}
+        <Button variant="success" onClick={handleLoClick}>Convert to Lowercase</Button>{' '}
     </div>
+
+    <div className="container my-2">
+        <h3>Your text summary</h3>
+        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{0.008*text.split(" ").length} Minutes to read</p>
+    </div>
+
+    </>
   )
 }
 
