@@ -27,13 +27,14 @@ export default function Mynavbar(props) {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'}`}>
+            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'} justify-content-end ml-auto float-right`}>
               <Form.Check // prettier-ignore
                 type="switch"
                 id="custom-switch"
                 label="Enable Darkmode"
-                className=' me-2'
+                className='ml-auto float-right justify-content-end'
                 onClick={props.toggleMode}
+                style={{alignSelf: 'center'}}
               />              
             </Form>
 
