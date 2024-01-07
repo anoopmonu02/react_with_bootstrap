@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function TextForm(props) {
 
-  const [text, setText] = useState('Enter text here'); 
+  const [text, setText] = useState(''); 
   
   const handleUpClick = () => {
     console.log('Btn is clicked');
@@ -22,6 +22,16 @@ export default function TextForm(props) {
     console.log('changed');
     setText(event.target.value);
   }
+
+  const handleClearClick = () => {
+    let txt = '';
+    setText(txt);
+  }
+
+  const handleRevClick = () => {
+    let txt = text.split('').reverse().join('');
+    setText(txt);
+  }
     
   return (
     <>
@@ -35,6 +45,8 @@ export default function TextForm(props) {
         {/* <Mybutton btnText="Convert to Uppercase"  btnClass="primary"/> */}
         <Button variant="primary" onClick={handleUpClick}>Convert to Uppercase</Button>{' '}
         <Button variant="success" onClick={handleLoClick}>Convert to Lowercase</Button>{' '}
+        <Button variant="warning" onClick={handleClearClick}>Clear Text</Button>{' '}
+        <Button variant="info" onClick={handleRevClick}>Reverse Text</Button>{' '}
     </div>
 
     <div className="container my-2">
