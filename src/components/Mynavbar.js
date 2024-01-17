@@ -3,7 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 export default function Mynavbar(props) {
   return (
@@ -13,8 +14,10 @@ export default function Mynavbar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">{props.aboutText}</Nav.Link>
+            {/* <Nav.Link to="/">Home</Nav.Link> */}
+            <Link className='nav-link' to="/">Home</Link>
+            {/* <Nav.Link to="/about">{props.aboutText}</Nav.Link> */}
+            <Link className='nav-link' to="/about">{props.aboutText}</Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -27,12 +30,12 @@ export default function Mynavbar(props) {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'} justify-content-end ml-auto float-right`}>
+            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'} justify-content-end align-items-center`}>
               <Form.Check // prettier-ignore
                 type="switch"
                 id="custom-switch"
                 label="Enable Darkmode"
-                className='ml-auto float-right justify-content-end'
+                className='ml-auto d-flex justify-content-end'
                 onClick={props.toggleMode}
                 style={{alignSelf: 'center'}}
               />              
