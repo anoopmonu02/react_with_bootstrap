@@ -29,14 +29,19 @@ export default function Mynavbar(props) {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-
-            <Form className={`d-flex text-${props.mode==='light'?'dark':'light'} justify-content-end align-items-center`}>
+            <div className="d-flex">
+              <div className="bg-primary rounded mx-2 my-2" onClick={()=>{props.toggleMode('primary')}} style={{height:'25px', width:'25px', cursor:'pointer'}}></div>
+              <div className="bg-danger rounded mx-2 my-2" onClick={()=>{props.toggleMode('danger')}} style={{height:'25px', width:'25px', cursor:'pointer'}}></div>
+              <div className="bg-success rounded mx-2 my-2" onClick={()=>{props.toggleMode('success')}} style={{height:'25px', width:'25px', cursor:'pointer'}}></div>
+              <div className="bg-warning rounded mx-2 my-2" onClick={()=>{props.toggleMode('warning')}} style={{height:'25px', width:'25px', cursor:'pointer'}}></div>
+            </div>
+            <Form className={`d-flex mx-2 text-${props.mode==='light'?'dark':'light'} justify-content-end align-items-center`}>
               <Form.Check // prettier-ignore
                 type="switch"
                 id="custom-switch"
                 label="Enable Darkmode"
                 className='ml-auto d-flex justify-content-end'
-                onClick={props.toggleMode}
+                onClick={()=>{props.toggleMode(null)}}
                 style={{alignSelf: 'center'}}
               />              
             </Form>
