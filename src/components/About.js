@@ -1,30 +1,15 @@
 import React, {useState} from 'react'
 import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
 
-export default function About() {
+export default function About(props) {
 
-    const [btnText, setBtnText] = useState('Enable Dark Mode');
-    const [myStyle, setMyStyle] = useState({
+    /* const [myStyle, setMyStyle] = useState({
         color: 'black',
         backgroundColor: 'white'
-    })
-
-    const toggleTheme =() => {
-        if(myStyle.color==='black'){
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '0.5px solid white'
-            })
-            setBtnText("Enable Light Mode")
-        } else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
+    }) */
+    let myStyle = {
+        color: props.mode === 'dark'?'white':'#042743',
+        backgroundColor: props.mode === 'dark'?'#042743':'white'
     }
 
   return (
@@ -56,7 +41,6 @@ export default function About() {
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
-        <Button className="my-2" onClick={toggleTheme} variant="dark">{btnText}</Button>{' '}
     </div>
   )
 }

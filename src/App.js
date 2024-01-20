@@ -51,8 +51,8 @@ function App() {
     <Mynavbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText="About"/>
     <MyAlert alert={alert}/>
     <div className="container my-3">
-    <Routes>
-        <Route exact path="/about" element={<About/>}/> 
+    <Routes> 
+        <Route exact path="/about" element={<About mode={mode}/>}/> 
         <Route exact path="" element={<TextForm heading="Enter the text to Analyze" mode={mode}/>}/>
     </Routes>
       

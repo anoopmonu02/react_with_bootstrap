@@ -10,13 +10,15 @@ function MyAlert(props) {
     
   return (
     /* dismissible */
-    props.alert && <Alert variant={props.alert.typ} >
+    <div style={{height:'55px'}}>
+    {props.alert && <Alert variant={props.alert.typ} >
     <Alert.Heading>{convertToTitle(props.alert.typ)}</Alert.Heading>
         {/* <p>
             {props.alert.msg}
         </p> */}
         {props.alert.msg}
-    </Alert>
+    </Alert>}
+    </div>
   )
 }
 

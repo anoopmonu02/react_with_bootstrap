@@ -39,20 +39,21 @@ export default function TextForm(props) {
         <Form>            
             <h2>{props.heading}</h2>
             <Form.Group className="mb-3" controlId="myBox">                
-                <Form.Control as="textarea" style={{backgroundColor:props.mode==='dark'?'darkgray':'white',color:props.mode==='dark'?'white':'black'}} rows={8} value={text} onChange={handleOnChange}/>
+                <Form.Control as="textarea" style={{backgroundColor:props.mode==='dark'?'#13466e':'white',color:props.mode==='dark'?'white':'black'}} rows={8} value={text} onChange={handleOnChange}/>
             </Form.Group>
         </Form>
         {/* <Mybutton btnText="Convert to Uppercase"  btnClass="primary"/> */}
-        <Button variant="primary" onClick={handleUpClick}>Convert to Uppercase</Button>{' '}
-        <Button variant="success" onClick={handleLoClick}>Convert to Lowercase</Button>{' '}
-        <Button variant="warning" onClick={handleClearClick}>Clear Text</Button>{' '}
-        <Button variant="info" onClick={handleRevClick}>Reverse Text</Button>{' '}
+        <Button variant="primary" disabled={text.length===0} className='my-1' onClick={handleUpClick}>Convert to Uppercase</Button>{' '}
+        <Button variant="success" disabled={text.length===0} className='my-1' onClick={handleLoClick}>Convert to Lowercase</Button>{' '}
+        <Button variant="warning" disabled={text.length===0} className='my-1' onClick={handleClearClick}>Clear Text</Button>{' '}
+        <Button variant="info" disabled={text.length===0} className='my-1' onClick={handleRevClick}>Reverse Text</Button>{' '}
     </div>
 
     <div className="container my-2">
         <h3>Your text summary</h3>
         <p>{text.trim()===''?0:text.match(/\S+/g).length} words and {text.length} characters</p>
-        <p>{0.008*text.split(" ").length} Minutes to read</p>
+        <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} characters</p>
     </div>
 
     </>
